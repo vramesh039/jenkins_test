@@ -20,7 +20,4 @@ node {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
    }
-   stage('Results') {
-        archiveArtifacts 'api-gateway/target/*.jar'
-   }
 }
