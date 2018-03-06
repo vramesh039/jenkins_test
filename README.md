@@ -40,11 +40,6 @@
  jenkins integration testing
 
 
-testing jenkins pipeline
-
-testsb 
-
-jenkins teat
 
 test polling
 
