@@ -33,17 +33,7 @@
   * then run ``` mvn clean package ```
   * then run ``` java -jar target\product-service-0.0.1-SNAPSHOT.jar ```
 
-
-  
- jenkins test
- 
- jenkins integration testing
-
-
-fdsgsfhfghh
-test polling
-
-dgdfhhfh
+testing polll
 
   
 
