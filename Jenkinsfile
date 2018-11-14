@@ -20,7 +20,8 @@ node {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
    }
-    //stage('artifact') {
-    //    sshPublisher(publishers: [sshPublisherDesc(configName: 'target', transfers: [sshTransfer(excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'api-gateway/target/api-gateway-0.0.1-SNAPSHOT.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-    //}
+   stage('Results') {
+      junit '**/api-gateway/target/surefire-reports/*.xml'
+      archiveArtifacts 'api-gateway/target/*.jar'
+   }
 }
