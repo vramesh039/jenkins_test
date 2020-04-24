@@ -1,15 +1,25 @@
-adcd = ['a', 'b', 'c', 'd']
+def map = [
+        Bob  : 42,
+        Alice: 54,
+        Max  : 33
+]
 
-node ('master') {
-        stage('testing loop') {
-                echo_all(adcd)
+pipeline {
+    agent any
+
+    stages {
+        stage('Initialize') {
+            steps {
+                script {
+                    map.each { entry ->
+                        stage (entry.key) {
+                            timestamps{
+                                echo "$entry.value"
+                            }
+                        }
+                    }
+                }
+            }
         }
+    }
 }
-
-def echo_all(list) {
-        for (int i = 0; i < list.size(); i++) {
-        sh " echo This is ${list[i]}"
-        }
-}
-
-                
