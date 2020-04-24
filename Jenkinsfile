@@ -12,7 +12,7 @@ pipeline {
                                 timeout(time: 1, unit: "MINUTES")
                         }
                         steps {
-                                sh 'printf "executing step1'
+                                sh 'printf "executing step1"'
                         }
                 }
                 stage("step2") {
@@ -20,7 +20,7 @@ pipeline {
                                 timeout(time: 2, unit: "MINUTES")
                         }
                         steps {
-                                sh 'printf "executing step2'
+                                sh 'printf "executing step2"'
                         }
                 }
         }
