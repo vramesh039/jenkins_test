@@ -20,7 +20,7 @@ pipeline {
                                 timeout(time: 2, unit: "MINUTES")
                         }
                         steps {
-                                sh 'printf "\\e[31mexecuting step2\\e[0m\\n""'
+                                sh 'printf "\\e[31mexecuting step2\\e[0m\\n"'
                         }
                 }
         }
