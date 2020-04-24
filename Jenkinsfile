@@ -9,7 +9,7 @@ pipeline {
                 
                 booleanParam( name: 'BOOLEAN', defaultValue: true, description: 'please select boolean value')
                 
-                password( name: 'PASSWORD', defaultvalue: 'test123', description: 'please enter password')
+                password( name: 'PASSWORD', defaultValue: 'test123', description: 'please enter password')
         }
         
         stages {
