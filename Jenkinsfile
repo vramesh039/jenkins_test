@@ -1,15 +1,15 @@
 pipeline {
         agent any
         parameters {
-                string( name: 'NAME', defaultValue: 'jenkinstraining', decsription: 'please enter your name')
+                string( name: 'NAME', defaultValue: 'jenkinstraining', description: 'please enter your name')
                 
-                text( name: 'BIO', defaultValue: '', decsription: 'please say something about you')
+                text( name: 'BIO', defaultValue: '', description: 'please say something about you')
                 
-                choice( name: 'CHOICE', choices:  ['one', 'two', 'three'], decsription: 'please chose one')
+                choice( name: 'CHOICE', choices:  ['one', 'two', 'three'], description: 'please chose one')
                 
-                booleanParam( name: 'BOOLEAN', defaultValue: true, decsription: 'please select boolean value')
+                booleanParam( name: 'BOOLEAN', defaultValue: true, description: 'please select boolean value')
                 
-                password( name: 'PASSWORD', defaultvalue: 'test123', decsription: 'please enter password')
+                password( name: 'PASSWORD', defaultvalue: 'test123', description: 'please enter password')
         }
         
         stages {
