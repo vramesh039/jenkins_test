@@ -1,27 +1,17 @@
-pipeline {
-        agent any
-        options {
-                timestamps()
-                ansiColor("xterm")
-        }
-        stages {
-                stage("step1") {
-                        options {
-                                timeout(time: 1, unit: "MINUTES")
+node {
+        timestamps {
+                ansiColor("xterm") {
+                        stage("stage1") {
+                                timeout(time: 1, unit: "MINUTES") {
+                                        sh 'printf "\\e[31mexecuting step1\\e[0m\\n"'
+                                }
                         }
-                        steps {
-                                sh 'printf "\\e[31mexecuting step1\\e[0m\\n"'
+                        if (env.state == "test") {
+                        stage("stage1") {
+                                timeout(time: 2, unit: "MINUTES") {
+                                        sh 'printf "\\e[31mexecuting step2\\e[0m\\n"'
+                                }
                         }
-                }
-                stage("step2") {
-                        when {
-                                environment name: "state", value: "test"
-                        }
-                        options {
-                                timeout(time: 2, unit: "MINUTES")
-                        }
-                        steps {
-                                sh 'printf "\\e[31mexecuting step2\\e[0m\\n"'
                         }
                 }
         }
