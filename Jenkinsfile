@@ -1,8 +1,30 @@
-node {
-        stage("stage1") {
-               echo "testing satge1"
+pipeline {
+        agent any
+        
+        options {
+                timestamps()
+                ansiColor("xterm")
         }
-        stage("stage2") {
-                echo "testing stage2"
+        
+        stages {
+                stage("step1") {
+                        options {
+                                timeout(time: 1, unit: "MINUTES")
+                        }
+                        steps {
+                                sh 'printf "executing step1'
+                        }
+                }
+                stage("step2") {
+                        options {
+                                timeout(time: 2, unit: "MINUTES")
+                        }
+                        steps {
+                                sh 'printf "executing step2'
+                        }
+                }
         }
 }
+                   
+                                
+                        
