@@ -1,24 +1,19 @@
 pipeline {
         agent any
         stages {
-                stage('devmaster') {
-                        when {
-                                anyOf {
-                                        branch 'master'; branch 'development'
+                stage('input') {
+                        input {
+                                message "IS It ok to deploy the code on production"
+                                ok "Yes"
+                                submitter "admin"
+                                parameters {
+                                        string(name: 'USER', defaultValue: 'admin', description: 'administrator')
                                 }
                         }
-                                    
                         steps {
-                               echo 'I am either mater or development branch'
-                        }
-                }
-                stage('master') {
-                        when {
-                                branch 'master'
-                        }
-                        steps {
-                                echo 'I am master'
+                                echo "${USER} approved, proceeding with prodution deployment"
                         }
                 }
         }
 }
+                                
