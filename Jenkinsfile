@@ -8,8 +8,11 @@ pipeline {
                 }
         }
         post {
+                sucess{
+                        echo 'The command executed sucessfully'
+                }
                 failure {
-                        echo 'This is post build step'
+                        echo 'This command was not executed sucessfully'
                 }
         }
 }
