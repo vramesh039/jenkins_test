@@ -8,7 +8,7 @@ node ('master') {
 
 def echo_all(list) {
         list.each { item ->
-                echo "This is ${item}"
+                sh "This is ${item}"
         }
 }
                 
