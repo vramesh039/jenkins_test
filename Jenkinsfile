@@ -8,7 +8,7 @@ pipeline {
     }
 
     stages {
-	    stag('enable webhook'){
+	    stage('enable webhook'){
 	  	    steps {
 			    script { properties([pipelineTriggers([githubPush()])])
 				   }
