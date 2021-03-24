@@ -52,7 +52,7 @@ pipeline {
                     }
                }
         
-        stage('DependencyCheck) {
+        stage('DependencyCheck') {
               steps {
                   script {
                       sh '''DC_VERSION="latest"
