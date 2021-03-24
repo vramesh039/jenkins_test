@@ -15,7 +15,7 @@ pipeline {
                 }
             }
            
-        stage('build application) {
+        stage('build application') {
               steps {
                   // Run Maven on a Unix agent.
                   sh "mvn -Dmaven.test.failure.ignore=true -f api-gateway clean package"
@@ -43,7 +43,7 @@ pipeline {
                   }
               }
               
-              stage(qualityGate') {
+              stage('qualityGate') {
                     steps {
                         script {
                             timeout(time: 1, unit: 'HOURS') {
