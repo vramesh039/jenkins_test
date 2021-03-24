@@ -72,6 +72,8 @@ fi
 
 # Make sure we are using the latest version
 docker pull owasp/dependency-check:$DC_VERSION
+rm -rf  $(pwd)/odc-reports || true
+mkdir $(pwd)/odc-reports
 
 docker run --rm \\
     -e user=$USER \\
