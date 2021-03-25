@@ -89,6 +89,13 @@ docker run --rm \\
                   }
                   dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
               }
+            post {
+                always {
+                    emailext body: "check condole output at $BUILD_URL for more information \n", 
+                         to: "sathishbob@gmail.com",
+                        subject: '$PROJECT_NAME is completed - Build number is $BUILD_NUMBER- Build Status is $BUILD_STATUS'
+                }
+            }
               }
               
                     
