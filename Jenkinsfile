@@ -26,5 +26,21 @@ pipeline {
                 }
             }
         }
+        
+        stage("Artifactory") {
+           steps {
+             script {
+                 def server = Artifactory.server 'jfrog'
+                 def uploadSpec = """{
+                    "files": [{
+                       "pattern": "discovery-server/target/*.jar",
+                       "target": "java"
+                    }]
+                 }"""
+                 server.upload(uploadSpec)
+               }
+            }
+       }
+              
     }
 }
