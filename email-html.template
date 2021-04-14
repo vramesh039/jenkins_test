@@ -53,6 +53,11 @@
   }
 </STYLE>
 <BODY>
+<% 
+def envOverrides = it.getAction("org.jenkinsci.plugins.workflow.cps.EnvActionImpl").getOverriddenEnvironment()
+Name =  envOverrides["Name"]
+cest = envOverrides["cest"]
+%>
   <!-- BUILD RESULT -->
   <table class="section">
     <tr class="tr-title">
