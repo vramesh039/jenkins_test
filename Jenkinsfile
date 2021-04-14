@@ -28,5 +28,23 @@ pipeline {
                 }
             }
         }
+         stage('Email') {
+            steps{
+                script {
+                    cest = TimeZone.getTimeZone("CEST")
+                    def cest = new Date()
+                    println(cest) 
+                    def mailRecipients = 'sathishbabudevops@gmail.com'
+                    def jobName = currentBuild.fullDisplayName
+                    env.Name = Name
+                    env.cest = cest
+                    emailext body: '''${SCRIPT, template="email-html.template"}''',
+                    mimeType: 'text/html',
+                    subject: "[Jenkins] ${jobName}",
+                    to: "${mailRecipients}",
+                    replyTo: "${mailRecipients}"
+                           }
+                        }
+                    }
     }
 }
