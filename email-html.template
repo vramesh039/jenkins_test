@@ -86,8 +86,12 @@ cest = envOverrides["cest"]
       <td><% build.causes.each() { cause -> %> ${cause.shortDescription} <%  } %></td>
     </tr>
     <tr>
-      <td>Build Variable:</td>
+      <td>App Name:</td>
       <td>${Name}</td>
+    </tr>
+    <tr>
+      <td>Cest Variable:</td>
+      <td>${cest}</td>
     </tr>
   </table>
   <br/>
