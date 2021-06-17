@@ -8,24 +8,15 @@ pipeline {
     }
 
     stages {
-        stage ("Enable Webhook") {
-            steps {
-                script {
-                    properties([pipelineTriggers([githubPush()])])
-                }
-            }
-        }
-        
         stage('pullscm') {
             steps {
                 git credentialsId: 'github', url: 'git@github.com:sathishbob/jenkins_test.git'
             }
         }
-        
         stage('Build') {
             steps {
                 // Run Maven on a Unix agent.
-                sh "mvn -Dmaven.test.failure.ignore=true -f api-gateway/ clean package"
+                sh "mvn -Dmaven.test.failure.ignore=true -f api-gateway clean package"
 
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
