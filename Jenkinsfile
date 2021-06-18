@@ -38,6 +38,7 @@ pipeline {
                 success {
                     junit 'api-gateway/target/surefire-reports/*.xml'
                     archiveArtifacts 'api-gateway/target/*.jar'
+                    emailext body: "Please check console output at $BUILD_RTL for more information", to: "sathishbob@gmail.com", subject: "Jenkins Training - $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS"
                 }
             }
         }
