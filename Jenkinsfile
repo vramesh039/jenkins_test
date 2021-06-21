@@ -49,11 +49,7 @@ pipeline {
                     def jobName = currentBuild.fullDisplayName
                     env.Name = jenkins
                     env.cest = cest
-                    emailext body: '''${SCRIPT, template="email-html.template"}''',
-                        mimeType: 'text/html',
-                        subject: "[jenkins] ${jobName}",
-                        to: "${mailRecipients}",
-                        replyTo: "${mailRecipients}"
+                    emailext body: '''${SCRIPT, template="email-html.template"}''', mimeType: 'text/html', subject: "[jenkins] ${jobName}", to: "${mailRecipients}", replyTo: "${mailRecipients}"
                 }
             }
         }
