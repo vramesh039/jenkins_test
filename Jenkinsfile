@@ -53,7 +53,7 @@ pipeline {
                         mimeType: 'text/html',
                         subject: "[jenkins] ${jobName}",
                         to: "${mailRecipients}",
-                        replayTo: "${mailRecipients}"
+                        replyTo: "${mailRecipients}"
                 }
             }
         }
