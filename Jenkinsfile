@@ -1,10 +1,6 @@
 pipeline {
     agent any
     
-    triggers {
-        pollSCM("*/2 * * * *")
-    }
-
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "MVN3"
@@ -36,23 +32,5 @@ pipeline {
                 }
             }
         }
-          stage('Email') {
-            steps{
-                script {
-                    cest = TimeZone.getTimeZone("CEST")
-                    def cest = new Date()
-                    println(cest) 
-                    def mailRecipients = 'sathishbob@gmail.com'
-                    def jobName = currentBuild.fullDisplayName
-                    env.Name = Name
-                    env.cest = cest
-                    emailext body: '''${SCRIPT, template="email-html.template"}''',
-                    mimeType: 'text/html',
-                    subject: "[Jenkins] ${jobName}",
-                    to: "${mailRecipients}",
-                    replyTo: "${mailRecipients}"
-                           }
-                        }
-                    }
     }
 }
