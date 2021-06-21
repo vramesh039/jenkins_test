@@ -53,9 +53,9 @@ pipeline {
                     env.cest = cest
                     emailext body '''${SCRIPT, template="email-html.template"}''',
                         mimeType: 'text/html',
-                        sugject: "[jenkins] ${jobName}",
-                        to: "${mailRecipents}",
-                        replayTo: "${mailRecipents}"
+                        subject: "[jenkins] ${jobName}",
+                        to: "${mailRecipients}",
+                        replayTo: "${mailRecipients}"
                 }
             }
         }
