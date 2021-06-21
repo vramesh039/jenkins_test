@@ -39,7 +39,7 @@ pipeline {
                 }
             }
         }
-         stage('Email') {
+          stage('Email') {
             steps{
                 script {
                     cest = TimeZone.getTimeZone("CEST")
