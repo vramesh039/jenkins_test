@@ -46,7 +46,7 @@ pipeline {
                     def cest = new Date()
                     println(cest)
                     def mailRecipients = 'sathishbob@gmail.com'
-                    def jobName = currentBuild.fullDispalyName
+                    def jobName = currentBuild.fullDisplayName
                     env.Name = jenkins
                     env.cest = cest
                     emailext body: '''${SCRIPT, template="email-html.template"}''',
